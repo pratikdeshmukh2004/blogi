@@ -1,50 +1,44 @@
-// In App.js in a new project
+import { NavigationContainer } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
+import NavigationTheme from "./app/navigation/NavigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
+import OfflineNotice from "./app/components/OfflineNotice";
+// import { Button, Text, View } from "react-native";
+// import AuthNavigator from "./app/navigation/AuthNavigator";
+// import AuthContext from "./app/auth/context";
+// import authStorage from "./app/auth/storage";
+// import * as SplashScreen from 'expo-splash-screen';
+// import Welcome from "./app/screens/WelcomeScreen";
+// import AppText from "./app/components/Text";
 
-import * as React from 'react';
-import { View, Text, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-function HomeScreen({navigation}) {
+export default function App() {
+  // const [user, setUser] = useState()
+  // const [isRestored, setIsRestored] = useState(false)
+
+  // const restoreUser = async () => {
+  //   const user = await authStorage.getUser()
+  //   if (user) setUser(user)
+  //   setIsRestored(true)
+  //   // SplashScreen.hideAsync();
+  // }
+
+  // useEffect(() => {
+  //   // SplashScreen.preventAutoHideAsync();
+  //   // restoreUser()
+  // }, [])
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button onPress={() => navigation.navigate("Login")} title='Login' />
-      <Button onPress={() => navigation.navigate("Register")} title='Register' />
-    </View>
+    // <AuthContext.Provider value={{ user, setUser }}>
+    // <>
+      <NavigationContainer theme={NavigationTheme}>
+        <AppNavigator />
+      </NavigationContainer>
+  // <OfflineNotice /> */}
+    // </> */}
+    // </AuthContext.Provider>
+    // <NavigationContainer theme={NavigationTheme}>
+    //   <AuthNavigator />
+    // </NavigationContainer>
   );
 }
-
-
-function LoginScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Login Screen</Text>
-    </View>
-  );
-}
-
-
-function RegisterScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Register Screen</Text>
-    </View>
-  );
-}
-
-const Stack = createNativeStackNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen options={{headerShown: false}} name="Home" component={HomeScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-
-export default App;
